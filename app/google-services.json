@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "394212171790",
+    "project_id": "hellodr-fc9eb",
+    "storage_bucket": "hellodr-fc9eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394212171790:android:1c1b5c248b291c307e9c5f",
+        "android_client_info": {
+          "package_name": "com.example.hellodr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394212171790-716ps3l8jg7j7bf4btnjel8g1vf0u93i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqpYPXRG-bxtXXn4nWH2Fn-HakVvhjkA8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394212171790-716ps3l8jg7j7bf4btnjel8g1vf0u93i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
