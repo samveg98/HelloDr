@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidProjects/HelloDr/app/src/main/res/layout/activity_login.xml" value="0.1331521739130435" />
+        <entry key="..\:/AndroidProjects/HelloDr/app/src/main/res/layout/activity_main.xml" value="0.15625" />
         <entry key="..\:/AndroidProjects/HelloDr/app/src/main/res/layout/activity_signup.xml" value="0.16168478260869565" />
+        <entry key="..\:/AndroidProjects/HelloDr/app/src/main/res/layout/fragment_home.xml" value="0.15625" />
         <entry key="..\:/AndroidProjects/HelloDr2/app/src/main/res/layout/activity_main.xml" value="0.12771739130434784" />
         <entry key="..\:/AndroidProjects/HelloDr2/app/src/main/res/layout/app_bar_main.xml" value="0.12771739130434784" />
         <entry key="..\:/AndroidProjects/HelloDr2/app/src/main/res/layout/content_main.xml" value="0.12771739130434784" />
