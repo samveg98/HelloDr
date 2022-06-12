@@ -88,7 +88,7 @@ public class Signup extends AppCompatActivity {
                     email1.setError("Enter Email");
                     return;
 
-                } else if (!email.matches("^([\\w-\\.]+){1,64}@([\\w&&[^_]]+){2,255}.[a-z]{2,}$")) {
+                } else if (!email.matches("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$")) {
                     email1.setError("Enter valid Email");
                     return;
 
