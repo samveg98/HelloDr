@@ -96,6 +96,10 @@ public class Signup extends AppCompatActivity {
                     pwd.setError("Enter Password");
                     return;
 
+                } else if (password.length()<6) {
+                    pwd.setError("Minimum 6 letter");
+                    return;
+
                 } else if (repswd.getText().toString().isEmpty()) {
                     repswd.setError("Enter Password again");
                     return;
