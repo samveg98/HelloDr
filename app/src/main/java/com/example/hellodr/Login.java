@@ -22,12 +22,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Login extends AppCompatActivity {
     TextView tvSignup;
     EditText etEmail,etPassword;
     Button login;
     FirebaseAuth fAuth;
+    FirebaseFirestore fstore;
     ProgressBar progressBar;
     String email=null,password=null;
 
@@ -42,6 +44,7 @@ public class Login extends AppCompatActivity {
         login = (Button) findViewById(R.id.login);
 
         fAuth = FirebaseAuth.getInstance();
+        fstore = FirebaseFirestore.getInstance();
         progressBar = findViewById(R.id.progressBar);
 
         tvSignup.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +85,7 @@ public class Login extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Toast.makeText(Login.this,"Logged in Successfully",Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            finish();
                         }
                         else {
                             Toast.makeText(Login.this,"Error Occured" + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
@@ -90,5 +94,14 @@ public class Login extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(FirebaseAuth.getInstance().getCurrentUser() != null)
+        {
+            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+        }
     }
 }

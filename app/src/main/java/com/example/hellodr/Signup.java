@@ -19,12 +19,19 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Signup extends AppCompatActivity {
     TextView tvLogin;
     EditText fname1, lname1, email1, pwd, repswd;
     Button signup;
     FirebaseAuth fAuth;
+    FirebaseFirestore fstore;
     ProgressBar progressBar;
     String fname = null,lname=null,email=null,password=null;
 
@@ -43,6 +50,7 @@ public class Signup extends AppCompatActivity {
         signup = (Button) findViewById(R.id.signup);
 
         fAuth = FirebaseAuth.getInstance();
+        fstore = FirebaseFirestore.getInstance();
         progressBar = findViewById(R.id.progressBar);
 
         if(fAuth.getCurrentUser() != null){
@@ -114,8 +122,17 @@ public class Signup extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            FirebaseUser user = fAuth.getCurrentUser();
                             Toast.makeText(Signup.this,"User Created",Toast.LENGTH_SHORT).show();
+                            DocumentReference df = fstore.collection("Users").document(user.getUid());
+                            Map<String, Object> userInfo = new HashMap<>();
+                            userInfo.put("FirstName",fname);
+                            userInfo.put("LastName",lname);
+                            userInfo.put("Email",email);
+                            userInfo.put("isPatient","1");
+                            df.set(userInfo);
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            finish();
                         }
                         else {
                             Toast.makeText(Signup.this,"Error Occured" + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
