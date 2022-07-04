@@ -74,6 +74,44 @@
                 android:textSize="20dp"
                 android:layout_marginBottom="10dp"/>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="10"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="You are ?"
+                    android:textSize="20dp"
+                    android:layout_weight="3"/>
+                <RadioGroup
+                    android:id="@+id/radioUserType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight="7"
+                    android:weightSum="10">
+
+                    <RadioButton
+                        android:id="@+id/radioPatient"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:text="Patient"
+                        android:checked="true"
+                        android:textSize="20dp"/>
+                    <RadioButton
+                        android:id="@+id/radioDoctor"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:text="Doctor"
+                        android:textSize="20dp"/>
+                </RadioGroup>
+            </LinearLayout>
+
             <Button
                 android:id="@+id/signup"
                 android:layout_width="match_parent"
@@ -99,7 +137,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Login"
-            android:textSize="17dp"/>
+            android:textSize="19dp"/>
     </LinearLayout>
 
     <ProgressBar

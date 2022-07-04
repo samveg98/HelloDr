@@ -19,9 +19,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Login extends AppCompatActivity {
@@ -52,9 +55,11 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(Login.this,Signup.class);
                 startActivity(i);
+                finishAffinity();
                 Login.this.overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
             }
         });
+
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,15 +88,35 @@ public class Login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if(task.isSuccessful()){
+                            checkUserLevel(FirebaseAuth.getInstance().getCurrentUser().getUid());
                             Toast.makeText(Login.this,"Logged in Successfully",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                            finish();
                         }
                         else {
                             Toast.makeText(Login.this,"Error Occured" + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+            }
+        });
+    }
+
+    private void checkUserLevel(String uid) {
+        DocumentReference df = fstore.collection("Users").document(uid);
+        //extract data from document
+        df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+            //identify user level
+                if(documentSnapshot.getString("isPatient") != null){
+                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                    finish();
+                }
+                //isDoctor will be here
+                if(documentSnapshot.getString("isPatient") != null){
+                    //start new activity and sent to patient activity
+                    //finish();
+                }
+
             }
         });
     }

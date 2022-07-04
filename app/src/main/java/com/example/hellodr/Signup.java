@@ -8,10 +8,13 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +37,8 @@ public class Signup extends AppCompatActivity {
     FirebaseFirestore fstore;
     ProgressBar progressBar;
     String fname = null,lname=null,email=null,password=null;
+    RadioGroup rdgrpUser;
+    RadioButton userIs ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +53,7 @@ public class Signup extends AppCompatActivity {
         pwd = (EditText) findViewById(R.id.password);
         repswd = (EditText) findViewById(R.id.etRPassword);
         signup = (Button) findViewById(R.id.signup);
+        rdgrpUser = findViewById(R.id.radioUserType);
 
         fAuth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
@@ -64,6 +70,7 @@ public class Signup extends AppCompatActivity {
                 Intent l = new Intent(Signup.this, Login.class);
                 startActivity(l);
                 Signup.this.overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                finishAffinity();
             }
         });
 
@@ -76,6 +83,9 @@ public class Signup extends AppCompatActivity {
                 email = email1.getText().toString();
                 password = pwd.getText().toString();
 
+                int selectedUser = rdgrpUser.getCheckedRadioButtonId();
+                userIs = findViewById(selectedUser);
+                Log.e("TAG", "onClick: "+userIs.getText().toString() );
 
                 if (fname.equals("")) {
                     fname1.setError("Enter First Name");
@@ -129,7 +139,12 @@ public class Signup extends AppCompatActivity {
                             userInfo.put("FirstName",fname);
                             userInfo.put("LastName",lname);
                             userInfo.put("Email",email);
-                            userInfo.put("isPatient","1");
+                            if(userIs.getText().toString().equals("Patient")){
+                                userInfo.put("isPatient","1");
+                            }
+                            else if (userIs.getText().toString().equals("Doctor")){
+                                userInfo.put("isDoctor","1");
+                            }
                             df.set(userInfo);
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
                             finish();
