@@ -111,10 +111,9 @@ public class Login extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(),MainActivity.class));
                     finish();
                 }
-                //isDoctor will be here
-                if(documentSnapshot.getString("isPatient") != null){
-                    //start new activity and sent to patient activity
-                    //finish();
+                if(documentSnapshot.getString("isDoctor") != null){
+                    startActivity(new Intent(getApplicationContext(),DoctorActivity.class));
+                    finish();
                 }
 
             }

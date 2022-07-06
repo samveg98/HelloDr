@@ -19,7 +19,6 @@ import com.example.hellodr.ui.appointment.AppointmentViewModel;
 public class ReminderFragment extends Fragment {
 
     private ReminderViewModel mViewModel;
-
     public static ReminderFragment newInstance() {
         return new ReminderFragment();
     }
@@ -27,7 +26,12 @@ public class ReminderFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_reminder, container, false);
+        View root =  inflater.inflate(R.layout.fragment_reminder, container, false);
+
+
+
+
+        return root;
     }
 
     @Override

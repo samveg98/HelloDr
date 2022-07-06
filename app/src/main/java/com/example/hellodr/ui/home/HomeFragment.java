@@ -34,6 +34,8 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
 
 
+
+
         return root;
     }
 

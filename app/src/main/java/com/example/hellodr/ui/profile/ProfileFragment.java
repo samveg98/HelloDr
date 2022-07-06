@@ -17,7 +17,6 @@ import com.example.hellodr.R;
 public class ProfileFragment extends Fragment {
 
     private ProfileViewModel mViewModel;
-
     public static ProfileFragment newInstance() {
         return new ProfileFragment();
     }
@@ -25,7 +24,12 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        View root = inflater.inflate(R.layout.fragment_profile, container, false);
+
+
+
+
+        return root;
     }
 
     @Override

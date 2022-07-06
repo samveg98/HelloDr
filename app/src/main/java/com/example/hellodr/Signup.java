@@ -136,18 +136,23 @@ public class Signup extends AppCompatActivity {
                             Toast.makeText(Signup.this,"User Created",Toast.LENGTH_SHORT).show();
                             DocumentReference df = fstore.collection("Users").document(user.getUid());
                             Map<String, Object> userInfo = new HashMap<>();
+
                             userInfo.put("FirstName",fname);
                             userInfo.put("LastName",lname);
                             userInfo.put("Email",email);
+
                             if(userIs.getText().toString().equals("Patient")){
                                 userInfo.put("isPatient","1");
+                                df.set(userInfo);
+                                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                                finish();
                             }
                             else if (userIs.getText().toString().equals("Doctor")){
                                 userInfo.put("isDoctor","1");
+                                df.set(userInfo);
+                                startActivity(new Intent(getApplicationContext(),DoctorActivity.class));
+                                finish();
                             }
-                            df.set(userInfo);
-                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                            finish();
                         }
                         else {
                             Toast.makeText(Signup.this,"Error Occured" + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
