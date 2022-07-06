@@ -106,7 +106,7 @@ public class Login extends AppCompatActivity {
         df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-            //identify user level
+            //identify user type
                 if(documentSnapshot.getString("isPatient") != null){
                     startActivity(new Intent(getApplicationContext(),MainActivity.class));
                     finish();
