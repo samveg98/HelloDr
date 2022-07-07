@@ -11,4 +11,6 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="title_activity_main2">MainActivity2</string>
+
+    <string name="about">Our vision is to help mankind live healthier, longer lives by making quality healthcare accessible, affordable and convenient.</string>
 </resources>

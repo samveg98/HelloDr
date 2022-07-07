@@ -14,12 +14,15 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.hellodr.AllSpecialities;
 import com.example.hellodr.Login;
 import com.example.hellodr.R;
 import com.example.hellodr.databinding.FragmentHomeBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeFragment extends Fragment {
+
+    Button btnView;
 
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
@@ -32,6 +35,17 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        btnView = root.findViewById(R.id.btnView);
+
+        btnView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(getContext(), AllSpecialities.class));
+            }
+        });
+
 
 
 
