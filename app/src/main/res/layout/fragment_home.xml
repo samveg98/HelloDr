@@ -35,6 +35,7 @@
                         android:textSize="20sp"
                         android:textFontWeight="9"/>
                     <TextView
+                        android:id="@+id/tvLearn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Learn more"
@@ -96,7 +97,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Physician"/>
+                        android:text="Dentist"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -115,7 +116,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Physician"/>
+                        android:text="Eye"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -134,7 +135,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Physician"/>
+                        android:text="Psychiatrist"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -162,7 +163,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Physician"/>
+                        android:text="Gynecologist"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -181,7 +182,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Physician"/>
+                        android:text="Kidney"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -200,7 +201,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Physician"/>
+                        android:text="ENT"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -219,7 +220,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Physician"/>
+                        android:text="Skin &amp; Hair"/>
                 </LinearLayout>
 
             </LinearLayout>

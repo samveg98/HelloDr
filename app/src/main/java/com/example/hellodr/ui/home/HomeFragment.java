@@ -1,6 +1,7 @@
 package com.example.hellodr.ui.home;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class HomeFragment extends Fragment {
 
     Button btnView;
+    TextView tvLearn;
 
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
@@ -37,6 +39,15 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
 
         btnView = root.findViewById(R.id.btnView);
+        tvLearn = root.findViewById(R.id.tvLearn);
+
+        tvLearn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19.html");
+                startActivity(new Intent(Intent.ACTION_VIEW,uri));
+            }
+        });
 
         btnView.setOnClickListener(new View.OnClickListener() {
             @Override

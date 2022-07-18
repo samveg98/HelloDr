@@ -145,12 +145,27 @@ public class Signup extends AppCompatActivity {
                                 userInfo.put("isPatient","1");
                                 df.set(userInfo);
                                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
+
+                                DocumentReference df2 = fstore.collection("Patient").document(user.getUid());
+                                Map<String, Object> patientInfo = new HashMap<>();
+                                patientInfo.put("email",email);
+                                df2.set(patientInfo);
                                 finish();
                             }
                             else if (userIs.getText().toString().equals("Doctor")){
                                 userInfo.put("isDoctor","1");
                                 df.set(userInfo);
                                 startActivity(new Intent(getApplicationContext(),DoctorActivity.class));
+
+                                DocumentReference df3 = fstore.collection("Doctor").document(user.getUid());
+                                Map<String, Object> doctorInfo = new HashMap<>();
+                                doctorInfo.put("email",email);
+                                doctorInfo.put("FirstName",fname);
+                                doctorInfo.put("LastName",lname);
+                                doctorInfo.put("experience","5");
+                                doctorInfo.put("region","Kitchener");
+                                doctorInfo.put("speciality","General Physician");
+                                df3.set(doctorInfo);
                                 finish();
                             }
                         }
