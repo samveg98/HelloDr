@@ -63,6 +63,7 @@
                 android:layout_marginHorizontal="10dp">
 
                 <LinearLayout
+                    android:id="@+id/llGeneral"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -82,6 +83,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/llDental"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -91,7 +93,7 @@
                     <com.google.android.material.imageview.ShapeableImageView
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:src="@drawable/general"
+                        android:src="@drawable/dental"
                         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"/>
 
                     <TextView
@@ -101,6 +103,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/llEye"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -110,7 +113,7 @@
                     <com.google.android.material.imageview.ShapeableImageView
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:src="@drawable/general"
+                        android:src="@drawable/eye"
                         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"/>
 
                     <TextView
@@ -120,6 +123,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/llMental"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -129,7 +133,7 @@
                     <com.google.android.material.imageview.ShapeableImageView
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:src="@drawable/general"
+                        android:src="@drawable/psychiatric"
                         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"/>
 
                     <TextView
@@ -148,6 +152,7 @@
                 android:layout_marginVertical="15dp">
 
                 <LinearLayout
+                    android:id="@+id/llGynecologist"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -157,7 +162,7 @@
                     <com.google.android.material.imageview.ShapeableImageView
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:src="@drawable/general"
+                        android:src="@drawable/gynaecologist"
                         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"/>
 
                     <TextView
@@ -167,6 +172,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/llKidney"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -176,7 +182,7 @@
                     <com.google.android.material.imageview.ShapeableImageView
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:src="@drawable/general"
+                        android:src="@drawable/kidney"
                         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"/>
 
                     <TextView
@@ -186,6 +192,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/llEar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -195,7 +202,7 @@
                     <com.google.android.material.imageview.ShapeableImageView
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:src="@drawable/general"
+                        android:src="@drawable/ear"
                         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"/>
 
                     <TextView
@@ -205,6 +212,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/llSkin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -214,7 +222,7 @@
                     <com.google.android.material.imageview.ShapeableImageView
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:src="@drawable/general"
+                        android:src="@drawable/skin"
                         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"/>
 
                     <TextView

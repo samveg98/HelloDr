@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HelloDr">
         <activity
+            android:name=".BookAppointment"
+            android:exported="true" />
+        <activity
+            android:name=".AddReminder"
+            android:exported="true" />
+        <activity
             android:name=".AllDoctor"
             android:exported="true" />
         <activity

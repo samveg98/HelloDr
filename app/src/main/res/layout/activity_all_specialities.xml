@@ -64,7 +64,7 @@
                     android:layout_width="0dp"
                     android:layout_height="45dp"
                     android:layout_weight="1.5"
-                    android:src="@drawable/general" />
+                    android:src="@drawable/dental" />
                 <TextView
                     android:id="@+id/tvDental"
                     android:layout_width="0dp"
@@ -93,7 +93,7 @@
                     android:layout_width="0dp"
                     android:layout_height="45dp"
                     android:layout_weight="1.5"
-                    android:src="@drawable/general" />
+                    android:src="@drawable/eye" />
                 <TextView
                     android:id="@+id/tvEye"
                     android:layout_width="0dp"
@@ -180,7 +180,7 @@
                     android:layout_width="0dp"
                     android:layout_height="45dp"
                     android:layout_weight="1.5"
-                    android:src="@drawable/general" />
+                    android:src="@drawable/ear" />
                 <TextView
                     android:id="@+id/tvENT"
                     android:layout_width="0dp"
@@ -296,7 +296,7 @@
                     android:layout_width="0dp"
                     android:layout_height="45dp"
                     android:layout_weight="1.5"
-                    android:src="@drawable/general" />
+                    android:src="@drawable/diet" />
                 <TextView
                     android:id="@+id/tvDiet"
                     android:layout_width="0dp"
@@ -354,7 +354,7 @@
                     android:layout_width="0dp"
                     android:layout_height="45dp"
                     android:layout_weight="1.5"
-                    android:src="@drawable/general" />
+                    android:src="@drawable/lung" />
                 <TextView
                     android:id="@+id/tvLung"
                     android:layout_width="0dp"
@@ -383,7 +383,7 @@
                     android:layout_width="0dp"
                     android:layout_height="45dp"
                     android:layout_weight="1.5"
-                    android:src="@drawable/general" />
+                    android:src="@drawable/physiotherapy" />
                 <TextView
                     android:id="@+id/tvPhysio"
                     android:layout_width="0dp"
@@ -412,7 +412,7 @@
                     android:layout_width="0dp"
                     android:layout_height="45dp"
                     android:layout_weight="1.5"
-                    android:src="@drawable/general" />
+                    android:src="@drawable/bone" />
                 <TextView
                     android:id="@+id/tvBones"
                     android:layout_width="0dp"
