@@ -1,10 +1,12 @@
 package com.example.hellodr;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,6 +43,16 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.MyViewHold
         holder.region.setText(doctor.region);
         holder.experience.setText(doctor.experience);
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(holder.itemView.getContext(),BookAppointment.class);
+                holder.itemView.getContext().startActivity(intent);
+                Toast.makeText(holder.itemView.getContext(), "btnclcik",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
     }
 
     @Override
@@ -59,6 +71,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.MyViewHold
             speciality = itemView.findViewById(R.id.tvSpeciality);
             experience = itemView.findViewById(R.id.tvExperience);
             region = itemView.findViewById(R.id.tvRegion);
+
         }
     }
 }
