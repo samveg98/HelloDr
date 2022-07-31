@@ -2,16 +2,18 @@ package com.example.hellodr;
 
 public class Doctor {
 
-    String FirstName, LastName,speciality,experience,region;
+    String FirstName, LastName,speciality,experience,region,email;
 
     public Doctor(){}
 
-    public Doctor(String firstName, String lastName, String speciality, String experience, String region) {
+
+    public Doctor(String firstName, String lastName, String speciality, String experience, String region, String email) {
         FirstName = firstName;
         LastName = lastName;
         this.speciality = speciality;
         this.experience = experience;
         this.region = region;
+        this.email = email;
     }
 
     public String getFirstName() {
@@ -52,5 +54,13 @@ public class Doctor {
 
     public void setRegion(String region) {
         this.region = region;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
