@@ -48,9 +48,9 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.MyViewHold
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(holder.itemView.getContext(),BookAppointment.class);
-                intent.putExtra("email", doctor.email);
+                intent.putExtra("docEmail", doctor.email);
                 holder.itemView.getContext().startActivity(intent);
-                //Toast.makeText(holder.itemView.getContext(), doctor.email,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(holder.itemView.getContext(), doctor.docEmail,Toast.LENGTH_SHORT).show();
 
             }
         });

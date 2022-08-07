@@ -148,7 +148,7 @@ public class Signup extends AppCompatActivity {
 
                                 DocumentReference df2 = fstore.collection("Patient").document(user.getUid());
                                 Map<String, Object> patientInfo = new HashMap<>();
-                                patientInfo.put("email",email);
+                                patientInfo.put("docEmail",email);
                                 df2.set(patientInfo);
                                 finish();
                             }
@@ -159,7 +159,7 @@ public class Signup extends AppCompatActivity {
 
                                 DocumentReference df3 = fstore.collection("Doctor").document(user.getUid());
                                 Map<String, Object> doctorInfo = new HashMap<>();
-                                doctorInfo.put("email",email);
+                                doctorInfo.put("docEmail",email);
                                 doctorInfo.put("FirstName",fname);
                                 doctorInfo.put("LastName",lname);
                                 doctorInfo.put("experience","5");

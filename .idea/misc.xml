@@ -30,7 +30,9 @@
         <entry key="..\:/AndroidProjects/HelloDr/app/src/main/res/layout/fragment_profile.xml" value="0.14673913043478262" />
         <entry key="..\:/AndroidProjects/HelloDr/app/src/main/res/layout/fragment_reminder.xml" value="0.13677536231884058" />
         <entry key="..\:/AndroidProjects/HelloDr/app/src/main/res/layout/fragment_setting.xml" value="0.13677536231884058" />
+        <entry key="..\:/AndroidProjects/HelloDr/app/src/main/res/layout/item_appointment.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidProjects/HelloDr/app/src/main/res/layout/item_doctor.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/HelloDr/app/src/main/res/layout/item_reminder.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidProjects/HelloDr/app/src/main/res/layout/nav_header_main.xml" value="0.13677536231884058" />
         <entry key="..\:/AndroidProjects/HelloDr/app/src/main/res/menu/activity_main_drawer.xml" value="0.25" />
         <entry key="..\:/AndroidProjects/HelloDr/app/src/main/res/menu/main.xml" value="0.20416666666666666" />

@@ -28,7 +28,7 @@
                 android:textSize="20sp"/>
 
             <EditText
-                android:id="@+id/edit_med_name"
+                android:id="@+id/etMedName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter Medicine" />
@@ -57,12 +57,12 @@
                 android:textColor="@color/purple_500"
                 android:textSize="20sp" />
 
-
+<!--
             <androidx.appcompat.widget.AppCompatCheckBox
                 android:id="@+id/every_day"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Every Day" />
+                android:text="Every Day" />-->
 
             <LinearLayout
                 android:id="@+id/checkbox_layout"
@@ -196,7 +196,7 @@
             android:layout_height="match_parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnCheck"
+            android:id="@+id/btnDone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"

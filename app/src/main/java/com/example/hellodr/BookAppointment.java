@@ -1,7 +1,8 @@
 package com.example.hellodr;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -18,27 +19,30 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.hellodr.Doctor;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.EventListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BookAppointment extends AppCompatActivity {
 
-    Button btnLocation;
+    Button btnLocation,btnBookAppointment;
     Spinner slot;
     EditText etDate;
     DatePickerDialog datePickerDialog;
     TextView tvRegion, tvAddress,tvFname,tvLname,tvSpeciality,tvExperience;
-    String dirURL,email,region, address,fname,lname,speciality,experience;
-    FirebaseFirestore db;
+    String dirURL, docEmail,region, address,fname,lname,speciality,experience,userEmail;
+    FirebaseFirestore db,fstore;
+    FirebaseAuth mAuth;
 
 
     @Override
@@ -47,10 +51,11 @@ public class BookAppointment extends AppCompatActivity {
         setContentView(R.layout.activity_book_appointment);
 
         btnLocation = findViewById(R.id.btnLocation);
+        btnBookAppointment = findViewById(R.id.btnBook);
         etDate = findViewById(R.id.etDate);
         slot = findViewById(R.id.spinnerSlot);
         Intent intent = getIntent();
-        email = intent.getStringExtra("email");
+        docEmail = intent.getStringExtra("docEmail");
         tvRegion = findViewById(R.id.tvRegion);
         tvAddress = findViewById(R.id.tvAddress);
         tvFname = findViewById(R.id.tvFirstname);
@@ -58,8 +63,11 @@ public class BookAppointment extends AppCompatActivity {
         tvSpeciality = findViewById(R.id.tvSpeciality);
         tvExperience = findViewById(R.id.tvExperience);
 
+        mAuth = FirebaseAuth.getInstance();
+        userEmail = mAuth.getCurrentUser().getEmail();
 
-        //Toast.makeText(BookAppointment.this, email,Toast.LENGTH_SHORT).show();
+
+        //Toast.makeText(BookAppointment.this, docEmail,Toast.LENGTH_SHORT).show();
 
         String [] values =
                 {"9:00 AM","11:00 AM","12:00 PM","2:00 PM","4:00 PM"};
@@ -88,6 +96,7 @@ public class BookAppointment extends AppCompatActivity {
 
                             }
                         }, mYear, mMonth, mDay);
+                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
                 datePickerDialog.show();
             }
         });
@@ -104,7 +113,7 @@ public class BookAppointment extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
         db.collection("Doctor")
-                .whereEqualTo("email",email)
+                .whereEqualTo("email", docEmail)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -135,11 +144,44 @@ public class BookAppointment extends AppCompatActivity {
         btnLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(BookAppointment.this, "success accessing location" + dirURL, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(BookAppointment.this, "success accessing location" + dirURL, Toast.LENGTH_SHORT).show();
                 Uri gmmIntentUri = Uri.parse("http://maps.google.co.in/maps?q=" + dirURL);
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");
                 startActivity(mapIntent);
+            }
+        });
+
+
+        btnBookAppointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fstore = FirebaseFirestore.getInstance();
+                Map<String, Object> Appointment = new HashMap<>();
+                Appointment.put("userEmail",userEmail);
+                Appointment.put("docEmail",docEmail);
+                Appointment.put("date",etDate.getText().toString());
+                Appointment.put("slot",slot.getSelectedItem().toString());
+                Appointment.put("dfname",fname);
+                Appointment.put("dlname",lname);
+                Appointment.put("location",dirURL);
+
+                fstore.collection("Appointment")//.document("reminder")
+                        .add(Appointment)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w(TAG, "Error adding document", e);
+                            }
+                        });
+                Toast.makeText(BookAppointment.this, "Appointment Booked !" +userEmail+docEmail, Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
 
