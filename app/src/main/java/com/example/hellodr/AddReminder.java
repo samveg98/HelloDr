@@ -108,7 +108,7 @@ public class AddReminder extends AppCompatActivity {
                 System.out.println(userEmail);
 
                 Map<String, Object> MedReminder = new HashMap<>();
-                MedReminder.put("docEmail",userEmail);
+                MedReminder.put("email",userEmail);
                 MedReminder.put("medName",medname);
                 MedReminder.put("time",time);
                 MedReminder.put("days",days);
